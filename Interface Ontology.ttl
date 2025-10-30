@@ -1,0 +1,35 @@
+@prefix ex: <http://example.com/net#> .
+@prefix oran: <http://example.com/oran#> .
+@prefix tmf: <http://example.com/tmf#> .
+@prefix oda: <http://example.com/oda#> .
+@prefix kg: <http://example.com/kg#> .
+@prefix dt: <http://example.com/dt#> .
+@prefix km: <http://example.com/km#> .
+@prefix em: <http://example.com/event#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://example.com/net#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex: a owl:Ontology ; rdfs:label "Interface Ontology" .
+
+ex:Interface a owl:Class .
+ex:Port a owl:Class ; rdfs:subClassOf ex:Interface .
+ex:hasMAC a owl:DatatypeProperty ; rdfs:domain ex:Interface ; rdfs:range xsd:string .
+ex:hasIP a owl:DatatypeProperty ; rdfs:domain ex:Interface ; rdfs:range xsd:string .
+ex:locatedAt a owl:ObjectProperty ; rdfs:domain ex:Interface ; rdfs:range ex:Site .
+
+ex:Site a owl:Class .
+ex:Site2 a ex:Site .
+ex:Site4 a ex:Site .
+ex:Site0 a ex:Site .
+ex:Site14 a ex:Site .
+
+ex:Port2_1 a ex:Port ; ex:hasMAC "00:11:22:33:44:55" ; ex:hasIP "10.0.2.1" ; ex:locatedAt ex:Site2 .
+ex:Port4_1 a ex:Port ; ex:hasMAC "00:11:22:33:44:66" ; ex:hasIP "10.0.4.1" ; ex:locatedAt ex:Site4 .
+ex:R2_ge1 a ex:Port ; ex:hasIP "192.168.2.1" ; ex:locatedAt ex:Site2 .
+ex:R4_ge1 a ex:Port ; ex:hasIP "192.168.4.1" ; ex:locatedAt ex:Site4 .

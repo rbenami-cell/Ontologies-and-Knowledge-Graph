@@ -1,0 +1,35 @@
+@prefix ex: <http://example.com/net#> .
+@prefix oran: <http://example.com/oran#> .
+@prefix tmf: <http://example.com/tmf#> .
+@prefix oda: <http://example.com/oda#> .
+@prefix kg: <http://example.com/kg#> .
+@prefix dt: <http://example.com/dt#> .
+@prefix km: <http://example.com/km#> .
+@prefix em: <http://example.com/event#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://example.com/net#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex: a owl:Ontology ; rdfs:label "Link Ontology" .
+
+ex:PhysicalLink a owl:Class .
+ex:LogicalLink a owl:Class .
+ex:connectsPort a owl:ObjectProperty ; rdfs:domain ex:PhysicalLink ; rdfs:range ex:Port .
+ex:hasCapacity a owl:DatatypeProperty ; rdfs:domain ex:PhysicalLink ; rdfs:range xsd:string .
+ex:encapsulates a owl:ObjectProperty ; rdfs:domain ex:LogicalLink ; rdfs:range ex:PhysicalLink .
+ex:logicalCapacity a owl:DatatypeProperty ; rdfs:domain ex:LogicalLink ; rdfs:range xsd:string .
+ex:realizedBy a owl:ObjectProperty ; rdfs:domain ex:LogicalLink ; rdfs:range ex:Port .
+
+ex:Fiber_2_4 a ex:PhysicalLink ;
+  ex:connectsPort ex:Port2_1, ex:Port4_1 ;
+  ex:hasCapacity "800Gbps" .
+
+ex:IPLink_2_4 a ex:LogicalLink ;
+  ex:realizedBy ex:R2_ge1, ex:R4_ge1 ;
+  ex:encapsulates ex:Fiber_2_4 ;
+  ex:logicalCapacity "400Gbps" .

@@ -1,0 +1,25 @@
+@prefix ex: <http://example.com/net#> .
+@prefix oran: <http://example.com/oran#> .
+@prefix tmf: <http://example.com/tmf#> .
+@prefix oda: <http://example.com/oda#> .
+@prefix kg: <http://example.com/kg#> .
+@prefix dt: <http://example.com/dt#> .
+@prefix km: <http://example.com/km#> .
+@prefix em: <http://example.com/event#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ex: <http://example.com/net#> .
+@prefix oran: <http://example.com/oran#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex: a owl:Ontology ; rdfs:label "Cross-Domain Interaction Ontology" .
+
+oran:O_DU a owl:Class .
+oran:O_CU a owl:Class .
+ex:LogicalLink a owl:Class .
+ex:crossDomainDependsOn a owl:ObjectProperty ; rdfs:domain oran:O_DU ; rdfs:range ex:LogicalLink .
+ex:servedBy a owl:ObjectProperty ; rdfs:domain oran:O_CU ; rdfs:range ex:LogicalLink .
+
+ex:DU_Site2 a oran:O_DU ; ex:crossDomainDependsOn ex:IPLink_2_4 .
+ex:CU_Site0 a oran:O_CU ; ex:servedBy ex:IPLink_2_4 .

@@ -1,0 +1,28 @@
+@prefix ex: <http://example.com/net#> .
+@prefix oran: <http://example.com/oran#> .
+@prefix tmf: <http://example.com/tmf#> .
+@prefix oda: <http://example.com/oda#> .
+@prefix kg: <http://example.com/kg#> .
+@prefix dt: <http://example.com/dt#> .
+@prefix km: <http://example.com/km#> .
+@prefix em: <http://example.com/event#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <http://example.com/net#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex: a owl:Ontology ; rdfs:label "Location Ontology" .
+
+ex:Site a owl:Class .
+ex:Coordinate a owl:Class .
+ex:hasCoordinate a owl:ObjectProperty ; rdfs:domain ex:Site ; rdfs:range ex:Coordinate .
+ex:lat a owl:DatatypeProperty ; rdfs:domain ex:Coordinate ; rdfs:range xsd:decimal .
+ex:lon a owl:DatatypeProperty ; rdfs:domain ex:Coordinate ; rdfs:range xsd:decimal .
+
+ex:Site2 a ex:Site ; ex:hasCoordinate ex:C2 .
+ex:Site4 a ex:Site ; ex:hasCoordinate ex:C4 .
+ex:C2 a ex:Coordinate ; ex:lat "40.770"^^xsd:decimal ; ex:lon "-73.958"^^xsd:decimal .
+ex:C4 a ex:Coordinate ; ex:lat "40.771"^^xsd:decimal ; ex:lon "-73.950"^^xsd:decimal .

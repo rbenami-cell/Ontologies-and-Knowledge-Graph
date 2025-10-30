@@ -1,0 +1,76 @@
+@prefix ex: <http://example.com/net#> .
+@prefix oran: <http://example.com/oran#> .
+@prefix tmf: <http://example.com/tmf#> .
+@prefix oda: <http://example.com/oda#> .
+@prefix kg: <http://example.com/kg#> .
+@prefix dt: <http://example.com/dt#> .
+@prefix km: <http://example.com/km#> .
+@prefix em: <http://example.com/event#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ex: <http://example.com/net#> .
+@prefix tmf: <http://example.com/tmf#> .
+@prefix oda: <http://example.com/oda#> .
+@prefix em: <http://example.com/event#> .
+@prefix kg: <http://example.com/kg#> .
+@prefix dt: <http://example.com/dt#> .
+@prefix km: <http://example.com/km#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex: a owl:Ontology ; rdfs:label "Management Ontology with AI Agents, Events, ODA, TMF" .
+
+ex:Agent a owl:Class .
+ex:AssuranceAgent a owl:Class ; rdfs:subClassOf ex:Agent .
+ex:PlanningAgent a owl:Class ; rdfs:subClassOf ex:Agent .
+
+tmf:API a owl:Class .
+tmf:TMF641 a tmf:API .
+tmf:TMF652 a tmf:API .
+tmf:TMF639 a tmf:API .
+tmf:TMF686 a tmf:API .
+tmf:TMF688 a tmf:API .
+tmf:TMF702 a tmf:API .
+
+oda:Component a owl:Class .
+oda:SOM_TMFC007 a oda:Component .
+oda:ROM_TMFC011 a oda:Component .
+oda:RInv_TMFC012 a oda:Component .
+oda:TopologyServices a oda:Component .
+oda:EventManagement a oda:Component .
+
+oda:exposesAPI a owl:ObjectProperty ; rdfs:domain oda:Component ; rdfs:range tmf:API .
+oda:consumesAPI a owl:ObjectProperty ; rdfs:domain oda:Component ; rdfs:range tmf:API .
+ex:usesComponent a owl:ObjectProperty ; rdfs:domain ex:Agent ; rdfs:range oda:Component .
+ex:callsAPI a owl:ObjectProperty ; rdfs:domain ex:Agent ; rdfs:range tmf:API .
+
+oda:SOM_TMFC007 oda:exposesAPI tmf:TMF641 .
+oda:ROM_TMFC011 oda:exposesAPI tmf:TMF652 .
+oda:RInv_TMFC012 oda:exposesAPI tmf:TMF639 .
+oda:TopologyServices oda:exposesAPI tmf:TMF686 .
+oda:EventManagement oda:exposesAPI tmf:TMF688 .
+oda:ROM_TMFC011 oda:consumesAPI tmf:TMF702, tmf:TMF639 .
+oda:SOM_TMFC007 oda:consumesAPI tmf:TMF639, tmf:TMF686, tmf:TMF652 .
+
+em:Event a owl:Class .
+em:TopologyChanged a owl:Class ; rdfs:subClassOf em:Event .
+em:ResourceStateChanged a owl:Class ; rdfs:subClassOf em:Event .
+em:ServiceStateChanged a owl:Class ; rdfs:subClassOf em:Event .
+em:hub a owl:Class .
+em:hasSubscription a owl:ObjectProperty ; rdfs:domain ex:Agent ; rdfs:range em:hub .
+em:publishes a owl:ObjectProperty ; rdfs:domain oda:Component ; rdfs:range em:Event .
+
+ex:AI_Assurance a ex:AssuranceAgent ;
+  ex:usesComponent oda:TopologyServices, oda:SOM_TMFC007, oda:ROM_TMFC011, oda:RInv_TMFC012, oda:EventManagement ;
+  ex:callsAPI tmf:TMF686, tmf:TMF641, tmf:TMF652, tmf:TMF639, tmf:TMF702, tmf:TMF688 .
+
+em:Hub1 a em:hub .
+ex:AI_Assurance em:hasSubscription em:Hub1 .
+oda:EventManagement oda:exposesAPI tmf:TMF688 .
+
+kg:Artifact a owl:Class .
+km:ComponentSpec a owl:Class .
+km:bindsTo a owl:ObjectProperty ; rdfs:domain km:ComponentSpec ; rdfs:range oda:Component .
+
+km:Topology_TMFC0XX a km:ComponentSpec ; km:bindsTo oda:TopologyServices .
