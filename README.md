@@ -21,19 +21,18 @@ Repository Structure
 
 | Folder/File | Description |
 |--------------|-------------|
-| `network-layer.ttl` | Defines classes and properties for logical and physical network elements (nodes, links, layers). |
-| `intent-model.ttl` | Captures the intent lifecycle (expression → negotiation → monitoring → remediation). |
-| `assurance-model.ttl` | Models assurance agents, closed-loop events, and TMF-aligned KPIs. |
-| `digital-twin.ttl` | Describes digital-twin entities and synchronization with real network state. |
-| `common/vocabulary.ttl` | Canonical classes and properties shared across models (aligned with TMF SID/eTOM). |
+| `alarm-ontology.ttl` | Capture a sample classes and properties for alarm physical link and measurement). |
+| `Cross Domain Interaction Ontology.ttl | Captures a sample of O-RAN cross domain interaction). |
+| `Device Ontology.ttl` | Capture a sample of device interface, port for O-RAN functions such as O-CU and O-DU . |
+| `............ '|
 
 Standards Alignment
 
 These ontologies are aligned with key standards:
-TM Forum ODA / SID / eTOM
+TM Forum ODA / SID / eTOM / FF / TAM / Intent based AN
 ETSI ZSM (Zero-Touch Service Management)
-ITU-T Y.4500.12 / M.3080 (Digital-Twin Frameworks)
-IETF RFC 8345 / 9375 (Network topology and model composition)
+ITU-T Y.4500.12 / M.3080 / M.3010 (Digital-Twin Frameworks)
+IETF RFC 8345 / 9375 / 9449 / 9421  (Network topology and model composition)
 GSMA CAMARA / Open Gateway APIs for exposure
 
 Usage
@@ -42,12 +41,3 @@ You can load and explore these models using:
 [Protégé](https://protege.stanford.edu/) — for ontology editing and visualization  
 [Apache Jena Fuseki](https://jena.apache.org/) — for querying via SPARQL  
 [GraphDB](https://www.ontotext.com/products/graphdb/) — for reasoning and data federation  
-
-Example SPARQL query:
-```sparql
-PREFIX net: <http://example.org/network#>
-SELECT ?node ?layer
-WHERE {
-  ?node a net:NetworkNode .
-  ?node net:belongsToLayer ?layer .
-}
