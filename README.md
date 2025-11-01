@@ -1,10 +1,10 @@
-# Ontologies-and-Knowledge-Graph
+Ontologies-and-Knowledge-Graph
 Semantic Ontologies for AI-Driven Network Operations Models
-# Ontologies and Knowledge-Graph
+Ontologies and Knowledge-Graph
 
-**Semantic Ontologies for AI-Driven Network Operations**
+Semantic Ontologies for AI-Driven Network Operations
 
-This repository hosts a collection of ontology models and knowledge-graph artifacts used to represent **intent-based, AI-driven, and closed-loop network operations**. Each ontology is authored in **Turtle (.ttl)** format and designed for use with knowledge-graph platforms and digital-twin frameworks.
+This repository hosts a collection of ontology models and knowledge-graph artifacts used to represent **intent-based, AI-driven, and closed-loop network operations**. Each ontology is authored in Turtle (.ttl) format and designed for use with knowledge-graph platforms and digital-twin frameworks.
 
 Purpose
 
@@ -13,18 +13,18 @@ To enable autonomous, intent-based operations, these must be represented semanti
 
 This repository provides that foundation through reusable ontologies for:
 - Network modeling across IP, optical, and RAN layers  
-- Intent and policy representation** for closed-loop assurance  
-- Digital-twin synchronization** between operational and simulated states  
-- AI-agent reasoning** on service quality, fault, and performance
+- Intent and policy representation for closed-loop assurance  
+- Digital-twin synchronization between operational and simulated states  
+- AI-agent reasoning on service quality, fault, and performance
 
 Repository Structure
 
 | Folder/File | Description |
 |--------------|-------------|
-| `alarm-ontology.ttl` | Capture a sample classes and properties for alarm physical link and measurement). |
-| `Cross Domain Interaction Ontology.ttl | Captures a sample of O-RAN cross domain interaction). |
-| `Device Ontology.ttl` | Capture a sample of device interface, port for O-RAN functions such as O-CU and O-DU . |
-| `............ '|
+| alarm-ontology.ttl` | Capture a sample classes and properties for alarm physical link and measurement). |
+| Cross Domain Interaction Ontology.ttl | Captures a sample of O-RAN cross domain interaction). |
+| Device Ontology.ttl | Capture a sample of device interface, port for O-RAN functions such as O-CU and O-DU . |
+| ............ |
 
 Standards Alignment
 
