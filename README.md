@@ -21,7 +21,7 @@ Repository Structure
 
 | Folder/File | Description |
 |--------------|-------------|
-| alarm-ontology.ttl` | Capture a sample classes and properties for alarm physical link and measurement). |
+| alarm-ontology.ttl | Capture a sample classes and properties for alarm physical link and measurement). |
 | Cross Domain Interaction Ontology.ttl | Captures a sample of O-RAN cross domain interaction). |
 | Device Ontology.ttl | Capture a sample of device interface, port for O-RAN functions such as O-CU and O-DU . |
 | ............ |
